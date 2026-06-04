@@ -56,13 +56,13 @@ pip install -r requirements.txt  # or use pyproject.toml/poetry/setup.py if pref
 ```
 
 ### Configuration
-Set environment variables (example values shown). The risk threshold represents the approval decision cutoff and should be calibrated to your portfolio and policy requirements:
+Set environment variables (example values shown). The risk threshold is a normalized 0–1 cutoff used to approve/decline decisions (e.g., approve when score ≤ threshold) and should be calibrated to your portfolio and policy requirements:
 ```bash
 export LLM_PROVIDER="openai"
 export LLM_API_KEY="your_api_key"
 export MLFLOW_TRACKING_URI="http://localhost:5000"
 export MODEL_NAME="salesai-risk-model"
-export RISK_THRESHOLD="0.62"  # example approval cutoff; calibrate per policy and model performance
+export RISK_THRESHOLD="0.62"  # example 0–1 cutoff; calibrate per policy and model performance
 export AUDIT_LOG_LEVEL="INFO"
 ```
 
@@ -73,9 +73,13 @@ flask run --host 0.0.0.0 --port 8000
 ```
 
 ## API Surface (Example)
-- `POST /v1/conversations` — start or continue a loan conversation
-- `POST /v1/underwriting/decision` — request underwriting decision
-- `GET /v1/decisions/{id}` — retrieve decision, rationale, and audit trail
+- `POST /v1/conversations` — start or continue a loan conversation.
+  - **Input:** `conversation_id`, `message`, `channel`
+  - **Output:** `response`, `next_actions`, `documents_required`
+- `POST /v1/underwriting/decision` — request underwriting decision.
+  - **Input:** `applicant_profile`, `financials`, `documents`, `requested_terms`
+  - **Output:** `decision`, `risk_score`, `reason_codes`, `conditions`
+- `GET /v1/decisions/{id}` — retrieve decision, rationale, and audit trail.
 
 ## MLOps & Model Lifecycle
 - Track experiments and metrics in **MLflow**
