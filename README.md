@@ -62,7 +62,7 @@ export LLM_PROVIDER="openai"
 export LLM_API_KEY="your_api_key"
 export MLFLOW_TRACKING_URI="http://localhost:5000"
 export MODEL_NAME="salesai-risk-model"
-export RISK_THRESHOLD="0.62"
+export RISK_THRESHOLD="0.62"  # example value; calibrate per policy and model performance
 export AUDIT_LOG_LEVEL="INFO"
 ```
 
@@ -93,9 +93,9 @@ flask run --host 0.0.0.0 --port 8000
 - **Scaling:** containerized deployment via Docker/Kubernetes
 
 ## Roadmap
-- Real-time income verification integrations
-- Multi-region latency optimization
-- SHAP-based model explainability
+- **Short-term:** Real-time income verification integrations
+- **Mid-term:** Multi-region latency optimization
+- **Future:** SHAP-based model explainability
 
 ## License
 This project is intended for portfolio and demonstration purposes. Add a LICENSE file if you plan to distribute or commercialize it.
