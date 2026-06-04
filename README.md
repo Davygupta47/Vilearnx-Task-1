@@ -52,17 +52,17 @@ graph TD
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt  # adjust if your dependency file differs
+pip install -r requirements.txt  # or use pyproject.toml/poetry/setup.py if preferred
 ```
 
 ### Configuration
-Set environment variables (example values shown):
+Set environment variables (example values shown). The risk threshold represents the approval decision cutoff and should be calibrated to your portfolio and policy requirements:
 ```bash
 export LLM_PROVIDER="openai"
 export LLM_API_KEY="your_api_key"
 export MLFLOW_TRACKING_URI="http://localhost:5000"
 export MODEL_NAME="salesai-risk-model"
-export RISK_THRESHOLD="0.62"  # example value; calibrate per policy and model performance
+export RISK_THRESHOLD="0.62"  # example approval cutoff; calibrate per policy and model performance
 export AUDIT_LOG_LEVEL="INFO"
 ```
 
