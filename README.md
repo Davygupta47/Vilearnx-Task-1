@@ -93,9 +93,9 @@ flask run --host 0.0.0.0 --port 8000
 - **Scaling:** containerized deployment via Docker/Kubernetes
 
 ## Roadmap
-- Add real-time income verification integrations
-- Add multi-region latency optimization
-- Expand explainability with SHAP-based model insights
+- Implement real-time income verification integrations
+- Implement multi-region latency optimization
+- Implement SHAP-based model explainability
 
 ## License
 This project is intended for portfolio and demonstration purposes. Add a LICENSE file if you plan to distribute or commercialize it.
