@@ -56,13 +56,13 @@ pip install -r requirements.txt  # or use pyproject.toml/poetry/setup.py if pref
 ```
 
 ### Configuration
-Set environment variables (example values shown). The risk threshold is a normalized 0–1 cutoff used to approve/decline decisions (e.g., approve when score ≤ threshold) and should be calibrated to your portfolio and policy requirements:
+Set environment variables (example values shown). The risk threshold is a normalized 0–1 cutoff for a **risk score** (higher = riskier). Decisions typically approve when the score is **below** the threshold and decline when **above** it; calibrate per portfolio and policy requirements:
 ```bash
 export LLM_PROVIDER="openai"
 export LLM_API_KEY="your_api_key"
 export MLFLOW_TRACKING_URI="http://localhost:5000"
 export MODEL_NAME="salesai-risk-model"
-export RISK_THRESHOLD="0.62"  # example 0–1 cutoff; calibrate per policy and model performance
+export RISK_THRESHOLD="0.50"  # example 0–1 cutoff; calibrate per policy and model performance
 export AUDIT_LOG_LEVEL="INFO"
 ```
 
